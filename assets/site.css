@@ -48,11 +48,15 @@ h1 {
   font-size: clamp(2.3rem, 4vw, 3rem);
   line-height: 1.15;
   font-weight: 700;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 h2 {
   margin: 0;
   font-weight: 600;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 p.lead {
@@ -264,6 +268,11 @@ main {
 
 .breadcrumbs a {
   text-decoration: none;
+}
+
+.is-app .lang-switcher,
+.is-app .breadcrumbs {
+  display: none !important;
 }
 
 @media (max-width: 640px) {

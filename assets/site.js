@@ -25,7 +25,16 @@ function enhanceFaqLinks() {
   });
 }
 
+function applyAppView() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("app") === "true") {
+    document.documentElement.classList.add("is-app");
+    document.body.classList.add("is-app");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  applyAppView();
   setCurrentYear();
   openFaqFromLocation();
   enhanceFaqLinks();
