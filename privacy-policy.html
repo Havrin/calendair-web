@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
   <meta name="apple-mobile-web-app-title" content="CalendAIr Web" />
   <link rel="manifest" href="/assets/site.webmanifest" />
 </head>
+
 <body>
   <main class="page">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
@@ -34,16 +36,39 @@
     </div>
 
     <section>
-      <h2>What Calendar Data We Access</h2>
-      <p>When you grant permission, the app accesses your calendar through either:</p>
-      <ul>
-        <li>Apple EventKit (iOS), or</li>
-        <li>Google Calendar API (Android &amp; Google Accounts).</li>
-      </ul>
-      <p>The app retrieves only free/busy information required to calculate suitable meeting times.</p>
+      <p><strong>CalendAIr needs access to your Google, Outlook or Apple calendar so that the app can check when you are
+          free or busy and generate smart meeting time suggestions.</strong></p>
 
-      <h2>What We Do Not Access</h2>
-      <p>We explicitly do not access or store:</p>
+      <p>When you grant permission, the app accesses your calendar through the respective service APIs:</p>
+      <ul>
+        <li>Apple EventKit (iOS)</li>
+        <li>Outlook (Microsoft Graph API)</li>
+        <li>Google Calendar API (Android & Google Accounts)</li>
+      </ul>
+
+      <p>For technical reasons, the app loads event object metadata, which may include the following fields: ID,
+        ICalUID, Title, Description, StartTime, EndTime, Location, Status, Transparency, and Attendees.</p>
+
+      <p><strong>Crucially, we exclusively process and use only the free/busy information from this data to calculate
+          suitable meeting times.</strong> We explicitly do not use the content of event titles, descriptions,
+        attendees, or locations for our core functionality.</p>
+
+      <h2>Data We Store on Our Servers</h2>
+      <p>We do not store any sensitive calendar content. Temporary free/busy data may be processed in-memory for
+        suggestion generation but is not persisted. The data we <em>do</em> store includes:</p>
+      <ul>
+        <li><strong>User Profiles and Meeting Records:</strong> Basic account information and the meetings you create
+          within the app.</li>
+        <li><strong>Calendar Metadata:</strong> The name and status (e.g., 'Primary' calendar) of your selected
+          calendars.</li>
+        <li><strong>Secure Access Tokens:</strong> Encrypted refresh tokens (for Google and Outlook) or equivalent
+          access credentials (for Apple) are stored to maintain the connection to your calendars. These tokens can be
+          revoked by you at any time in your respective Google or Outlook account settings, or by disconnecting your
+          calendar in the app.</li>
+      </ul>
+
+      <h2>What We Do Not Store or Share</h2>
+      <p>We explicitly do not store, share, or make visible to any user or employee:</p>
       <ul>
         <li>Event titles</li>
         <li>Descriptions or notes</li>
@@ -56,39 +81,33 @@
       <h2>Purpose of Processing</h2>
       <p>We use your free/busy data solely to:</p>
       <ul>
-        <li>Detect when you are available; and</li>
+        <li>Detect when you are available.</li>
         <li>Generate meeting time suggestions for you and the people you invite.</li>
       </ul>
       <p>This is strictly limited to functionality within the app.</p>
 
       <h2>Legal Basis</h2>
-      <p>The legal basis for processing your calendar availability is your explicit consent (Art. 6(1)(a) GDPR). You may withdraw your consent at any time by revoking calendar access in your device settings or by deleting your account.</p>
-
-      <h2>Storage of Calendar Data</h2>
-      <p>We do not store sensitive calendar content on our servers. Temporary free/busy data may be processed in-memory to generate suggestions, but it is not persisted beyond what is necessary for the feature to function.</p>
-
-      <h2>No Human Access</h2>
-      <p>No member of our team can view your calendar data at any time. All processing is automated and restricted to the minimum required for the feature.</p>
-
-      <h2>No Sharing of Calendar Data</h2>
-      <p>We do not sell, rent, or share your calendar data with third parties.</p>
+      <p>The legal basis for processing your calendar availability is your explicit consent (Art. 6(1)(a) GDPR). You may
+        withdraw your consent at any time by revoking calendar access in your device settings or by deleting your
+        account.</p>
 
       <h2>Third-Party Services Used</h2>
-      <p>Our app uses the following infrastructure services:</p>
+      <p>Our application is built using secure infrastructure and services. We use the following major service providers
+        for our core functionality and infrastructure:</p>
       <ul>
-        <li>AWS DynamoDB - stores user profiles and meeting records</li>
-        <li>AWS Lambda - executes server-side logic</li>
-        <li>AWS API Gateway - provides secure API endpoints</li>
-        <li>AWS Cognito - handles authentication (OAuth + User Pool)</li>
-        <li>Groq API - used exclusively to generate meeting recommendations and does not receive your raw calendar data</li>
-        <li>Google Calendar API - used only when you explicitly connect your Google account</li>
-        <li>Google OAuth 2.0 - for authentication with Google</li>
-        <li>Firebase Core / Analytics / Crashlytics - for app analytics and crash diagnostics (no calendar data is transmitted)</li>
+        <li><strong>AWS (Amazon Web Services)</strong> – for cloud infrastructure.</li>
+        <li><strong>Google</strong> – for Google Calendar API access and Google OAuth 2.0 authentication.</li>
+        <li><strong>Apple</strong> – for Apple EventKit access and Apple authentication.</li>
+        <li><strong>Microsoft Outlook</strong> – for Microsoft Graph API access.</li>
+        <li><strong>Firebase Core / Analytics / Crashlytics</strong> – for app analytics and crash diagnostics (no
+          calendar content is transmitted).</li>
       </ul>
-      <p>All third-party services comply with security best practices and data protection requirements.</p>
+      <p>We may also use advertising services (like Google AdMob). All data collected for advertising is subject to your
+        explicit consent, which is managed via our in-app consent tool. For detailed terms of service and privacy
+        policies of the other listed providers, please refer to their respective websites.</p>
 
       <h2>International Transfers</h2>
-      <p>Some services (Google, AWS, Groq) may process data outside the EU. In such cases, we rely on:</p>
+      <p>Some services (Google, AWS) may process data outside the EU. In such cases, we rely on:</p>
       <ul>
         <li>Standard Contractual Clauses (SCCs)</li>
         <li>Adequacy decisions</li>
@@ -99,7 +118,7 @@
       <p>You have the right to:</p>
       <ul>
         <li>Access your personal data</li>
-        <li>Request deletion</li>
+        <li>Request deletion of your data</li>
         <li>Withdraw consent</li>
         <li>Object to processing</li>
         <li>File a complaint with your local data protection authority</li>
@@ -114,5 +133,5 @@
 
   <script src="/assets/site.js"></script>
 </body>
-</html>
 
+</html>

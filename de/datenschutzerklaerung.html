@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
   <meta name="apple-mobile-web-app-title" content="CalendAIr Web" />
   <link rel="manifest" href="/assets/site.webmanifest" />
 </head>
+
 <body>
   <main class="page">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
@@ -34,25 +36,98 @@
     </div>
 
     <section>
-      <p class="lead">Platzhaltertext - bitte durch Ihre offizielle Datenschutzerklärung ersetzen.</p>
-      <p class="placeholder">
-        [Fügen Sie hier den offiziellen Namen Ihres Unternehmens oder Projekts ein] („wir“, „uns“, „unser“) verpflichtet sich,
-        Ihre Privatsphäre zu schützen. Dieser Platzhaltertext beschreibt, welche personenbezogenen Daten Sie erheben,
-        zu welchen Zwecken sie verarbeitet werden, auf welcher Rechtsgrundlage dies geschieht und wie Nutzer ihre Rechte
-        nach den geltenden Datenschutzgesetzen ausüben können.
-      </p>
-      <p class="placeholder">
-        Ersetzen Sie diesen Abschnitt durch konkrete Informationen zur Datenerhebung (z. B. Kontoinformationen, Kalenderdaten),
-        zur Datennutzung (z. B. Bereitstellung von Terminplanungsdiensten), zur Datenweitergabe (z. B. Dienstleister, gesetzliche
-        Verpflichtungen), zu Aufbewahrungsfristen und zu Sicherheitsmaßnahmen. Geben Sie Kontaktinformationen für Datenschutzanfragen
-        sowie Hinweise zur Auskunft, Berichtigung oder Löschung von Daten an.
-      </p>
-      <p class="placeholder">
-        Wenn Sie auf Einwilligungen angewiesen sind, beschreiben Sie, wie Nutzer diese widerrufen können. Wenn Sie Daten nach DSGVO
-        oder vergleichbaren Regelungen verarbeiten, erläutern Sie die Betroffenenrechte und nennen Sie die Kontaktadresse Ihres
-        Datenschutzbeauftragten, soweit vorhanden. Weisen Sie darauf hin, wie Änderungen dieser Erklärung mitgeteilt werden und nennen
-        Sie das Datum der letzten Aktualisierung.
-      </p>
+      <p><strong>CalendAIr benötigt Zugriff auf deinen Google-, Outlook- oder Apple-Kalender, damit die App prüfen kann,
+          wann du frei oder belegt bist, und intelligente Terminvorschläge generieren kann.</strong></p>
+
+      <p>Wenn du die Erlaubnis erteilst, greift die App über die jeweiligen Service-APIs auf deinen Kalender zu:</p>
+      <ul>
+        <li>Apple EventKit (iOS)</li>
+        <li>Outlook (Microsoft Graph API)</li>
+        <li>Google Calendar API (Android & Google Accounts)</li>
+      </ul>
+
+      <p>Aus technischen Gründen lädt die App Metadaten des Ereignisobjekts, die die folgenden Felder enthalten können:
+        ID, ICalUID, Titel, Beschreibung, Startzeit, Endzeit, Ort, Status, Transparenz und Teilnehmer.</p>
+
+      <p><strong>Entscheidend ist, dass wir ausschließlich die Frei/Belegt-Informationen aus diesen Daten verarbeiten
+          und nutzen, um geeignete Besprechungszeiten zu berechnen.</strong> Wir nutzen ausdrücklich nicht den Inhalt
+        von Veranstaltungstiteln, Beschreibungen, Teilnehmern oder Orten für unsere Kernfunktionalität.</p>
+
+      <h2>Daten, die wir auf unseren Servern speichern</h2>
+      <p>Wir speichern keine sensiblen Kalenderinhalte. Temporäre Frei/Belegt-Daten können zur Generierung von
+        Vorschlägen im Arbeitsspeicher verarbeitet werden, werden aber nicht dauerhaft gespeichert. Zu den Daten, die
+        wir <em>tatsächlich</em> speichern, gehören:</p>
+      <ul>
+        <li><strong>Benutzerprofile und Besprechungsdatensätze:</strong> Basis-Kontoinformationen und die von dir in
+          der App erstellten Besprechungen.</li>
+        <li><strong>Kalender-Metadaten:</strong> Der Name und Status (z. B. „Hauptkalender“) deiner ausgewählten
+          Kalender.</li>
+        <li><strong>Sichere Zugriffstoken:</strong> Verschlüsselte Refresh-Token (für Google und Outlook) oder
+          gleichwertige Zugangsdaten (für Apple) werden gespeichert, um die Verbindung zu deinen Kalendern
+          aufrechtzuerhalten. Diese Token können von dir jederzeit in deinen jeweiligen Google- oder
+          Outlook-Kontoeinstellungen oder durch Trennen deines Kalenders in der App widerrufen werden.</li>
+      </ul>
+
+      <h2>Was wir NICHT speichern oder teilen</h2>
+      <p>Wir speichern, teilen oder machen für Benutzer oder Mitarbeiter ausdrücklich nicht sichtbar:</p>
+      <ul>
+        <li>Titel der Ereignisse</li>
+        <li>Beschreibungen oder Notizen</li>
+        <li>Teilnehmerlisten</li>
+        <li>Standorte</li>
+        <li>Erinnerungen oder Anhänge</li>
+        <li>Alle anderen Inhalte von Ereignissen</li>
+      </ul>
+
+      <h2>Zweck der Verarbeitung</h2>
+      <p>Wir verwenden deine Frei/Belegt-Daten ausschließlich für:</p>
+      <ul>
+        <li>Erkennen, wann du verfügbar bist.</li>
+        <li>Erstellen von Terminvorschlägen für dich und die von dir eingeladenen Personen.</li>
+      </ul>
+      <p>Diese Nutzung ist streng auf die Funktionalität innerhalb der App beschränkt.</p>
+
+      <h2>Rechtsgrundlage</h2>
+      <p>Die Rechtsgrundlage für die Verarbeitung deiner Kalenderverfügbarkeit ist deine ausdrückliche Einwilligung
+        (Art. 6(1)(a) DSGVO). Du kannst deine Einwilligung jederzeit widerrufen, indem du den Kalenderzugriff in deinen
+        Geräteeinstellungen aufhebst oder dein Konto löschst.</p>
+
+      <h2>Genutzte Dienste von Drittanbietern</h2>
+      <p>Unsere Anwendung basiert auf einer sicheren Infrastruktur und sicheren Diensten. Wir nutzen die folgenden
+        wichtigen Dienstleister für unsere Kernfunktionalität und Infrastruktur:</p>
+      <ul>
+        <li><strong>AWS (Amazon Web Services)</strong> – für Cloud-Infrastruktur.</li>
+        <li><strong>Google</strong> – für den Zugriff auf die Google Calendar API und die Google OAuth
+          2.0-Authentifizierung.</li>
+        <li><strong>Apple</strong> – for den Zugriff auf Apple EventKit und die Apple-Authentifizierung.</li>
+        <li><strong>Microsoft Outlook</strong> – für den Zugriff auf die Microsoft Graph API.</li>
+        <li><strong>Firebase Core / Analytics / Crashlytics</strong> – für App-Analysen und Absturzdiagnosen (es werden
+          keine Kalenderinhalte übertragen).</li>
+      </ul>
+      <p>Wir nutzen gegebenenfalls auch Werbedienste (wie Google AdMob). Alle für Werbezwecke erhobenen Daten
+        unterliegen deiner ausdrücklichen Einwilligung, die über unser In-App-Consent-Tool verwaltet wird. Detaillierte
+        Nutzungsbedingungen und Datenschutzrichtlinien der anderen aufgeführten Anbieter findest du auf deren jeweiligen
+        Websites.</p>
+
+      <h2>Internationale Datenübermittlungen</h2>
+      <p>Einige Dienste (Google, AWS) können Daten außerhalb der EU verarbeiten. In solchen Fällen verlassen wir uns
+        auf:</p>
+      <ul>
+        <li>Standardvertragsklauseln (Standard Contractual Clauses - SCCs)</li>
+        <li>Angemessenheitsbeschlüsse</li>
+        <li>Andere gesetzlich anerkannte Schutzmaßnahmen</li>
+      </ul>
+
+      <h2>Ihre Rechte</h2>
+      <p>Du hast das Recht auf:</p>
+      <ul>
+        <li>Auskunft über deine personenbezogenen Daten</li>
+        <li>Löschung deiner Daten</li>
+        <li>Widerruf der Einwilligung</li>
+        <li>Widerspruch gegen die Verarbeitung</li>
+        <li>Beschwerde bei Ihrer örtlichen Datenschutzbehörde</li>
+      </ul>
+      <p>Um diese Rechte auszuüben, kontaktieren Sie uns unter: <em>[E-Mail-Adresse einfügen]</em></p>
     </section>
   </main>
 
@@ -62,5 +137,5 @@
 
   <script src="/assets/site.js"></script>
 </body>
-</html>
 
+</html>
