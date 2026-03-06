@@ -1,6 +1,6 @@
 # CalendAIr Web
 
-The official landing page and documentation site for [CalendAIr](https://calendair.app).
+The official landing page and documentation site for [CalendAIr](https://calendair.de).
 
 ## Overview
 This repository contains the static web content for CalendAIr, including the homepage, FAQ, and legal pages. It is built using simple HTML/CSS/JS and is hosted on GitHub Pages.
